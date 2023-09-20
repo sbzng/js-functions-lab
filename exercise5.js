@@ -3,12 +3,16 @@ fetch("https://jsonplaceholder.typicode.com/todos")
   .then(json => {
     const uncompleted=json.reduce((arr,todo)=>{
         if(!todo.completed)  {
-        arr.userId.push(todo.userId),
-        arr.title.push(todo.title)
+            //arr.push(`userId:${todo.userId}  title:"${todo.title}"`)
+            arr.push({userId:todo.userId,title:todo.title});
     }
         return arr;
-        },{userId:[],title:[]})
-         console.log(uncompleted);
+        },[])
+
+   
+    console.log(uncompleted);
+  
     });
    
 
+   
